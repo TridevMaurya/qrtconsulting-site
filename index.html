@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>QRT Consulting — Strategy, Growth & Transformation</title>
+<meta name="description" content="QRT Consulting helps businesses grow with sharp strategy, operational excellence and digital transformation." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230a1f44'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' text-anchor='middle' fill='%23c9a227'>Q</text></svg>" />
+<style>
+  :root{
+    --navy:#0a1f44; --navy-2:#0e2a5c; --ink:#16233f;
+    --gold:#c9a227; --gold-soft:#f5ecd3;
+    --bg:#f7f9fc; --card:#ffffff; --muted:#5b6b8c; --line:#e5eaf3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+  a{text-decoration:none;color:inherit}
+  /* NAV */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--navy)}
+  .logo-mark{width:36px;height:36px;border-radius:10px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-weight:800;font-size:1.1rem}
+  .links{display:flex;gap:28px;align-items:center}
+  .links a{font-weight:500;color:var(--ink);font-size:.95rem}
+  .links a:hover{color:var(--gold)}
+  .btn{display:inline-block;background:var(--gold);color:#1a1405;font-weight:700;padding:12px 26px;border-radius:10px;border:0;cursor:pointer;font-size:.95rem;transition:.2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(201,162,39,.35)}
+  .btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6)}
+  .btn-outline:hover{border-color:#fff;box-shadow:none}
+  .menu-btn{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--navy)}
+  /* HERO */
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 60%,#123a7d 100%);color:#fff;padding:150px 0 110px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-120px;top:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.28),transparent 65%)}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.15;letter-spacing:-.5px;max-width:640px}
+  .hero h1 span{color:var(--gold)}
+  .hero p.lead{margin:22px 0 34px;font-size:1.15rem;color:#c8d3e8;max-width:600px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .stats{display:flex;gap:46px;margin-top:60px;flex-wrap:wrap}
+  .stat b{font-size:2rem;color:var(--gold);display:block}
+  .stat span{color:#aeb9d4;font-size:.9rem}
+  /* SECTIONS */
+  section{padding:90px 0}
+  .kicker{color:var(--gold);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.78rem}
+  h2{font-size:clamp(1.7rem,3.5vw,2.5rem);color:var(--navy);margin:10px 0 14px;letter-spacing:-.4px}
+  .sub{color:var(--muted);max-width:640px;margin-bottom:48px}
+  /* SERVICES */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:32px;transition:.22s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(10,31,68,.1);border-color:var(--gold)}
+  .icon{width:52px;height:52px;border-radius:14px;background:var(--gold-soft);display:grid;place-items:center;font-size:1.5rem;margin-bottom:18px}
+  .card h3{color:var(--navy);margin-bottom:10px;font-size:1.15rem}
+  .card p{color:var(--muted);font-size:.96rem}
+  /* ABOUT */
+  .about{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .ticks{list-style:none;margin-top:22px}
+  .ticks li{padding:10px 0 10px 34px;position:relative;color:var(--ink)}
+  .ticks li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:800}
+  /* PROCESS */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;counter-reset:step}
+  .step{background:var(--navy);color:#fff;border-radius:16px;padding:30px;position:relative}
+  .step::before{counter-increment:step;content:"0" counter(step);color:var(--gold);font-size:.85rem;font-weight:800;letter-spacing:2px}
+  .step h3{margin:12px 0 8px;font-size:1.1rem}
+  .step p{color:#b9c5de;font-size:.93rem}
+  /* TESTIMONIALS */
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  .quote{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px}
+  .quote p{font-style:italic;color:var(--ink)}
+  .who{margin-top:16px;font-weight:700;color:var(--navy)}
+  .who small{display:block;font-weight:400;color:var(--muted)}
+  .stars{color:var(--gold);margin-bottom:12px;letter-spacing:3px}
+  /* CONTACT */
+  .contact-box{background:var(--navy);border-radius:20px;padding:56px;color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .contact-box h2{color:#fff}
+  .contact-box .sub{color:#aeb9d4}
+  .info-row{margin:14px 0;color:#dbe3f5}
+  .info-row b{color:var(--gold)}
+  form{display:flex;flex-direction:column;gap:14px}
+  input,textarea{padding:14px 16px;border-radius:10px;border:1px solid #2a4a8a;background:#0e2a5c;color:#fff;font-size:.95rem;font-family:inherit}
+  input::placeholder,textarea::placeholder{color:#7f8fb5}
+  textarea{min-height:120px;resize:vertical}
+  /* FOOTER */
+  footer{background:#071a3a;color:#93a3c4;padding:44px 0;text-align:center;font-size:.9rem}
+  footer .logo{justify-content:center;color:#fff;margin-bottom:14px}
+  @media(max-width:820px){
+    .links{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;padding:20px;gap:18px;border-bottom:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+    .links.open{display:flex}
+    .menu-btn{display:block}
+    .about-grid,.contact-box{grid-template-columns:1fr}
+    .contact-box{padding:36px 26px}
+    section{padding:64px 0}
+    .hero{padding:130px 0 80px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="logo" href="#top"><span class="logo-mark">Q</span>QRT Consulting</a>
+    <div class="links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#process">Process</a>
+      <a href="#testimonials">Clients</a>
+      <a href="#contact" class="btn" style="color:#1a1405">Get in touch</a>
+    </div>
+    <button class="menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </nav>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <h1>Sharp strategy. Real growth. <span>Measurable results.</span></h1>
+    <p class="lead">QRT Consulting partners with ambitious businesses to solve their toughest problems — from market entry and scaling to digital transformation and operational excellence.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn">Book a free consultation</a>
+      <a href="#services" class="btn btn-outline">Explore services</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>120+</b><span>Projects delivered</span></div>
+      <div class="stat"><b>₹450 Cr+</b><span>Client value created</span></div>
+      <div class="stat"><b>15 yrs</b><span>Combined leadership experience</span></div>
+      <div class="stat"><b>98%</b><span>Client retention</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="kicker">What we do</div>
+    <h2>Services built around your growth</h2>
+    <p class="sub">Practical, senior-led consulting — no bloated decks, no junior handoffs. Just clear thinking and execution that moves the needle.</p>
+    <div class="grid">
+      <div class="card"><div class="icon">📊</div><h3>Business Strategy</h3><p>Market entry, competitive positioning and growth roadmaps backed by rigorous research and financial modelling.</p></div>
+      <div class="card"><div class="icon">⚙️</div><h3>Operations & Process</h3><p>Streamline operations, cut costs and build scalable processes that keep quality high as you grow.</p></div>
+      <div class="card"><div class="icon">💰</div><h3>Financial Advisory</h3><p>Fundraising support, investor readiness, unit economics and pricing strategy that investors trust.</p></div>
+      <div class="card"><div class="icon">💻</div><h3>Digital Transformation</h3><p>Modernise your tech stack, automate workflows and launch digital products customers love.</p></div>
+      <div class="card"><div class="icon">🎯</div><h3>Go-to-Market</h3><p>Launch plans, sales playbooks and channel strategy to win customers faster and cheaper.</p></div>
+      <div class="card"><div class="icon">👥</div><h3>Leadership & Org Design</h3><p>Org structure, hiring frameworks and leadership coaching for teams that perform under pressure.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="kicker">Who we are</div>
+      <h2>A consulting partner, not a vendor</h2>
+      <p class="sub" style="margin-bottom:0">QRT Consulting was founded on a simple belief — great advice is only valuable if it gets implemented. We work shoulder-to-shoulder with founders and leadership teams until the results show up in the numbers.</p>
+      <ul class="ticks">
+        <li>Senior consultants only — no handoffs to fresh graduates</li>
+        <li>Fixed, transparent pricing with milestone-based fees</li>
+        <li>Outcome-linked engagements available</li>
+        <li>Deep experience across startups, SMEs and enterprises</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card" style="background:var(--navy);border:0">
+        <div class="kicker" style="color:var(--gold)">Our promise</div>
+        <h3 style="color:#fff;font-size:1.5rem;margin:10px 0">If we can't create measurable value, we won't take the engagement.</h3>
+        <p style="color:#b9c5de">Every project starts with a free diagnostic. We tell you honestly whether we're the right fit — even if the answer is no.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="kicker">How we work</div>
+    <h2>A process that delivers, every time</h2>
+    <p class="sub">Four disciplined phases. You always know what's happening, what it costs and what comes next.</p>
+    <div class="steps">
+      <div class="step"><h3>Diagnose</h3><p>Free deep-dive into your business, data and goals. We identify the real problems — not the symptoms.</p></div>
+      <div class="step"><h3>Design</h3><p>A clear, prioritised action plan with owners, timelines and expected ROI, agreed together.</p></div>
+      <div class="step"><h3>Deliver</h3><p>Hands-on execution with your team. Weekly check-ins, transparent tracking, no surprises.</p></div>
+      <div class="step"><h3>Sustain</h3><p>We transfer knowledge, set up dashboards and stay on call until results are locked in.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="kicker">Client words</div>
+    <h2>Trusted by teams that demand results</h2>
+    <p class="sub">A few words from the people we've worked with.</p>
+    <div class="quotes">
+      <div class="quote"><div class="stars">★★★★★</div><p>"QRT rebuilt our sales process in eight weeks. Pipeline is up 3x and the team finally knows exactly what to do each day."</p><div class="who">Rohit Malhotra<small>Founder, D2C brand, Delhi</small></div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"The financial model they built got us through due diligence in one round. Investors kept asking who made it."</p><div class="who">Priya Sharma<small>Co-founder, Fintech startup, Mumbai</small></div></div>
+      <div class="quote"><div class="stars">★★★★★</div><p>"Practical, honest and fast. They said no to scope we didn't need — that honesty is why we'll work with them again."</p><div class="who">Anil Verma<small>Director, Manufacturing SME, Pune</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <div class="kicker">Get started</div>
+        <h2>Book your free diagnostic</h2>
+        <p class="sub">Tell us where you are and where you want to be. We'll respond within one business day.</p>
+        <div class="info-row">📧 <b>Email:</b> hello@qrtconsulting.com</div>
+        <div class="info-row">📞 <b>Phone:</b> +91 98765 43210</div>
+        <div class="info-row">📍 <b>Office:</b> New Delhi, India</div>
+      </div>
+      <form onsubmit="event.preventDefault();document.getElementById('formMsg').style.display='block';this.reset();">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Work email" required />
+        <input type="text" name="company" placeholder="Company name" />
+        <textarea name="message" placeholder="What challenge are you facing?" required></textarea>
+        <button class="btn" type="submit">Send enquiry</button>
+        <p id="formMsg" style="display:none;color:var(--gold);font-weight:600">Thanks! We'll get back to you within one business day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="logo-mark">Q</span>QRT Consulting</a>
+    <p>© 2026 QRT Consulting. All rights reserved. · hello@qrtconsulting.com</p>
+  </div>
+</footer>
+
+</body>
+</html>
